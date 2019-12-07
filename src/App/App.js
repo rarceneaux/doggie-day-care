@@ -10,6 +10,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <button className='btn btn-success'>The LAST HU$TLE IS TECHNOLOGY™</button>
         <a
           className="App-link"
           href="https://reactjs.org"
