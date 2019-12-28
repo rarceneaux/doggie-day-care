@@ -29,13 +29,6 @@ const dogs = [
   },
 ];
 
-const getAllDogs = () => {
-  const whoLetTheDogsOut = [];
-  dogs.forEach((dog) => {
-    whoLetTheDogsOut.push(dog);
-  });
-  // console.log(whoLetTheDogsOut);
-  return whoLetTheDogsOut;
-};
+const getAllDogs = () => dogs;
 
 export default { getAllDogs };

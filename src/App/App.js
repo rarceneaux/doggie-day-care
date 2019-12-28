@@ -1,12 +1,21 @@
 import React from 'react';
+import DogPen from '../components/DogPen/DogPen';
+import dogsData from '../helpers/data/dogsData';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-    <h1>Doggy Dog World</h1>
-    </div>
-  );
-}
+class App extends React.Component {
+  state = {
+    dogs: [],
+  }
 
+  componentDidMount() {
+    const dogs = dogsData.getAllDogs();
+    this.setState({ dogs });
+  }
+
+  render() {
+    return (<DogPen dogs={this.state.dogs}/>);
+  }
+}
 export default App;
