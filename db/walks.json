@@ -1,0 +1,22 @@
+{
+  "walk1": {
+    "dogId" : "dog1",
+    "employeeId": "employee4",
+    "date": "12/1/2019"
+  },
+  "walk2": {
+    "dogId" : "dog2",
+    "employeeId": "employee3",
+    "date": "12/11/2019"
+  },
+  "walk3": {
+    "dogId" : "dog3",
+    "employeeId": "employee2",
+    "date": "12/10/2019"
+  },
+  "walk4": {
+    "dogId" : "dog4",
+    "employeeId": "employee1",
+    "date": "12/13/2019"
+  }
+}

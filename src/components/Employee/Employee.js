@@ -15,7 +15,7 @@ class Employee extends React.Component {
     <div className="card employee">
         <img src={employee.img} className="card-img-top staff" alt="..."/>
         <div class="card-body">
-        <p class="card-text">{employee.firstName}  {employee.lastName}</p>
+        <p class="card-text">Employee Name: {employee.firstName}  {employee.lastName}</p>
     </div>
 </div>
     );
