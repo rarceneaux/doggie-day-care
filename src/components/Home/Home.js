@@ -36,9 +36,9 @@ class Home extends React.Component {
   render() {
     return (
       <div className="Home">
-        <h1>Doggy's Best Friend</h1>
+        <h1>Who Let da Dawgs Out?</h1>
     <DogPen dogs={this.state.dogs}/>
-        <h1> The Walkers </h1>
+        {/* <h1> The Walkers </h1> */}
     <StaffRoom employees={this.state.employees}/>
     </div>
     );
