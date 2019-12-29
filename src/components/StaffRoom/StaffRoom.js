@@ -4,7 +4,6 @@ import Employee from '../Employee/Employee';
 import employeeShape from '../../helpers/propz/employeeShape';
 
 import './StaffRoom.scss';
-import employeesData from '../../helpers/data/employeesData';
 
 class StaffRoom extends React.Component {
   static propTypes = {

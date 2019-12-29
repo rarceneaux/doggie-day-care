@@ -1,11 +1,10 @@
 import React from 'react';
 import DogPen from '../DogPen/DogPen';
 import dogsData from '../../helpers/data/dogsData';
-
+import employeesData from '../../helpers/data/employeesData';
 import './Home.scss';
 
 import StaffRoom from '../StaffRoom/StaffRoom';
-import employeesData from '../../helpers/data/employeesData';
 
 class Home extends React.Component {
   state = {
@@ -14,9 +13,24 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    const dogs = dogsData.getAllDogs();
-    const employees = employeesData.getAllEmployees();
-    this.setState({ dogs, employees });
+    this.getAllDogs();
+    this.getAllEmployees();
+  }
+
+  getAllDogs =() => {
+    dogsData.getAllDogs()
+      .then((dogs) => {
+        this.setState({ dogs });
+      })
+      .catch((error) => console.error({ error }));
+  }
+
+  getAllEmployees =() => {
+    employeesData.getAllEmployees()
+      .then((employees) => {
+        this.setState({ employees });
+      })
+      .catch((error) => console.error({ error }));
   }
 
   render() {
