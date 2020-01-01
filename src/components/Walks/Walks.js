@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Walks.scss';
-import WalkCards from '../WalkCards/WalkCards';
+import WalkCard from '../WalkCard/WalkCard';
 
 import walkShape from '../../helpers/propz/walkShape';
 import employeeShape from '../../helpers/propz/employeeShape';
+import walksData from '../../helpers/data/dogsData';
 
 import dogShape from '../../helpers/propz/dogShape';
 
@@ -13,17 +14,17 @@ class Walks extends React.Component {
     walks: PropTypes.arrayOf(walkShape.walkShape),
     employees: PropTypes.arrayOf(employeeShape.employeeShape),
     dogs: PropTypes.arrayOf(dogShape.dogShape),
-    addWalks: PropTypes.func,
+    deleteAWalk: PropTypes.func,
   }
 
   render() {
     const { walks } = this.props;
 
-    const walkCards = walks.map((walk) => <WalkCards key={walk.id} walk={walk}/>);
+    const walkCard = walks.map((walk) => <WalkCard key={walk.id} walk={walk}/>);
 
     return (
 <div className="Walks">
-  {walkCards}
+  {walkCard}
 </div>
     );
   }
