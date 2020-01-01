@@ -48,7 +48,7 @@ class WalkCard extends React.Component {
   }
 
   render() {
-    const { walk } = this.props;
+    const { walk, deleteAWalk } = this.props;
     const { firstName, lastName, dogName } = this.state;
     return (
     <div className="card walk">

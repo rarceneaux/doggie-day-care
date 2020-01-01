@@ -5,8 +5,6 @@ import WalkCard from '../WalkCard/WalkCard';
 
 import walkShape from '../../helpers/propz/walkShape';
 import employeeShape from '../../helpers/propz/employeeShape';
-import walksData from '../../helpers/data/dogsData';
-
 import dogShape from '../../helpers/propz/dogShape';
 
 class Walks extends React.Component {
@@ -18,9 +16,9 @@ class Walks extends React.Component {
   }
 
   render() {
-    const { walks } = this.props;
+    const { walks, deleteAWalk } = this.props;
 
-    const walkCard = walks.map((walk) => <WalkCard key={walk.id} walk={walk}/>);
+    const walkCard = walks.map((walk) => <WalkCard key={walk.id} walk={walk} deleteAWalk={deleteAWalk}/>);
 
     return (
 <div className="Walks">
