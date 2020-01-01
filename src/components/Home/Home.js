@@ -51,6 +51,14 @@ class Home extends React.Component {
     this.setState({ showWalkForm: true });
   }
 
+  deleteAWalk = (walkId) => {
+    walksData.deleteAWalk(walkId)
+      .then(() => {
+        this.getAllWalks();
+      })
+      .catch((errorFromDeleteWalk) => console.error({ errorFromDeleteWalk }));
+  }
+
   render() {
     return (
       <div className="Home">
@@ -59,7 +67,7 @@ class Home extends React.Component {
         <button onClick={this.setShowWalkForm} className="btn btn-danger">Add Walk</button>
         {this.state.showWalkForm && <WalkForm />}
 
-    <Walks walks={this.state.walks} />
+    <Walks walks={this.state.walks} deleteAWalk={this.deleteAWalk} />
         <h1>Dawgs</h1>
     <DogPen dogs={this.state.dogs}/>
         {/* <h1> The Walkers </h1> */}
