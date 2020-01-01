@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import firebase from 'firebase/app';
 import Home from '../components/Home/Home';
 
@@ -17,7 +17,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
-      console.log('user', user);
+      // console.log('user', user);
 
       if (user) {
         this.setState({ authed: true });

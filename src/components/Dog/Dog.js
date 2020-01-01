@@ -16,7 +16,7 @@ class Dog extends React.Component {
     // <h1>{dog.name}</h1>
     <div className="card text-center dog">
         <img src={dog.imageUrl} className="card-img-top" alt="..."/>
-        <div className="card-body">
+        <div className="card-body dog2">
         <h1 className="card-title">{dog.name}</h1>
         <p className="card-text">{dog.description}</p>
         <p className="card-text"> Owner: {dog.owner}</p>
