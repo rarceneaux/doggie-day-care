@@ -48,7 +48,7 @@ class WalkCard extends React.Component {
   }
 
   render() {
-    const { walk, deleteAWalk } = this.props;
+    const { walk } = this.props;
     const { firstName, lastName, dogName } = this.state;
     return (
     <div className="card walk">
@@ -56,7 +56,9 @@ class WalkCard extends React.Component {
     <p class="card-text">Dawg: {dogName}</p>
   <p class="card-text">Walker: {firstName } {lastName}</p>
     <p class="card-text">Date: {walk.date}</p>
-    <button onClick={this.deleteWalkEvent} className="btn btn-danger">Cancel</button>
+    <button onClick={this.deleteWalkEvent} className="btn btn-danger">Delete Walk</button>
+    <button className="btn btn-danger">Edit Walk</button>
+
 </div>
 </div>
     );
