@@ -7,7 +7,10 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: blue;
+  background-image: url(https://reactnativestarter-hosting-mobilehub-132039435.s3.amazonaws.com/Dog.png);
+  background-repeat: no-repeat;
+background-size: 100%;
+background-attachment: fixed;
 }
 
 code {
@@ -21,4 +24,8 @@ code {
 #dateInput{
   display:flex;
   text-align: center;
+}
+
+h1{
+  background-color: lightgray;
 }

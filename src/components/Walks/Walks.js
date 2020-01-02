@@ -18,7 +18,7 @@ class Walks extends React.Component {
   render() {
     const { walks, deleteAWalk } = this.props;
 
-    const walkCard = walks.map((walk) => <WalkCard key={walk.id} walk={walk} deleteAWalk={deleteAWalk}/>);
+    const walkCard = walks.map((walk) => <WalkCard key={walk.id} walk={walk} deleteAWalk={deleteAWalk} />);
 
     return (
 <div className="Walks">

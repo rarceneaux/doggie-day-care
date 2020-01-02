@@ -59,13 +59,22 @@ class Home extends React.Component {
       .catch((errorFromDeleteWalk) => console.error({ errorFromDeleteWalk }));
   }
 
+  addAWalk = (newWalk) => {
+    walksData.addAWalk(newWalk)
+      .then(() => {
+        this.getAllWalks();
+        this.setState({ showWalkForm: false });
+      })
+      .catch((errorFromSaveNewWalk) => console.error({ errorFromSaveNewWalk }));
+  }
+
   render() {
     return (
       <div className="Home">
         {/* <h1>Who Let da Dawgs Out?</h1> */}
         <h1>Dawg Walks</h1>
-        <button onClick={this.setShowWalkForm} className="btn btn-danger">Add Walk</button>
-        {this.state.showWalkForm && <WalkForm />}
+        <button onClick={this.setShowWalkForm} className="btn btn-secondary">Add Walk</button>
+        {this.state.showWalkForm && <WalkForm addAWalk={this.addAWalk}/>}
 
     <Walks walks={this.state.walks} deleteAWalk={this.deleteAWalk} />
         <h1>Dawgs</h1>
