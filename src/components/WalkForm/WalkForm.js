@@ -46,43 +46,42 @@ class WalkForm extends React.Component {
   }
 
   render() {
-    return (<div>Test Form</div>
-    // const { dogName, employeeName, date } = this.state;
-    // const { dogs, employees } = this.props;
+    const { dogName, employeeName, date } = this.state;
+    const { dogs, employees } = this.props;
 
-    // return (<form className="col-6 offset-3 WalkForm">
-    //   <div className="input-group mb-3">
-    //   <label htmlFor="dogName">Dog Name: </label>
-    //   <select className="form-control" value={dogName} id="dogName" onChange={this.handleDogChange}>
-    //     <option>Choose...</option>
-    //    {
-    //      dogs.map((dog) => (
-    //        (<option key={dog.id} value={dog.id}>{dog.name}</option>)))
-    //    }
-    //   </select>
-    //   </div>
-    //   <div className="input-group mb-3">
-    //         <label htmlFor="employeeName">Walkers: </label>
-    //         <select
-    //           className="form-control"
-    //           id="employeeName"
-    //           value={ employeeName }
-    //           onChange={this.handleEmployeeChange}>
-    //           <option defaultValue>Choose One...</option>
-    //           {
-    //           employees.map((employee) => (
-    //             (<option key={employee.id} value={employee.id}>{employee.firstName} {employee.lastName}</option>)))
-    //           }
-    //         </select>
-    //       </div>
-    // <div className="input-group date">
-    // <label htmlFor="date">Select Date: </label>
-    // <input type="date" format="mm/dd/yyyy" id="date" value={date} onChange={this.handleDateChange}/>
-    // </div>
-    // {
-    // <button onClick={this.saveWalkEvent} className="btn btn-secondary">Save Walk</button>
-    // }
-    // </form>
+    return (<form className="col-6 offset-3 WalkForm">
+      <div className="input-group mb-3">
+      <label htmlFor="dogName">Dog Name: </label>
+      <select className="form-control" value={dogName} id="dogName" onChange={this.handleDogChange}>
+        <option>Choose...</option>
+       {
+         dogs.map((dog) => (
+           (<option key={dog.id} value={dog.id}>{dog.name}</option>)))
+       }
+      </select>
+      </div>
+      <div className="input-group mb-3">
+            <label htmlFor="employeeName">Walkers: </label>
+            <select
+              className="form-control"
+              id="employeeName"
+              value={ employeeName }
+              onChange={this.handleEmployeeChange}>
+              <option defaultValue>Choose One...</option>
+              {
+              employees.map((employee) => (
+                (<option key={employee.id} value={employee.id}>{employee.firstName} {employee.lastName}</option>)))
+              }
+            </select>
+          </div>
+    <div className="input-group date">
+    <label htmlFor="date">Select Date: </label>
+    <input type="date" id="date" value={date} onChange={this.handleDateChange}/>
+    </div>
+    {
+    <button onClick={this.saveWalkEvent} className="btn btn-secondary">Save Walk</button>
+    }
+    </form>
     );
   }
 }

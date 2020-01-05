@@ -69,12 +69,13 @@ class Home extends React.Component {
   }
 
   render() {
+    const { dogs, employees } = this.state;
     return (
       <div className="Home">
         {/* <h1>Who Let da Dawgs Out?</h1> */}
         <h1>Dawg Walks</h1>
         <button onClick={this.setShowWalkForm} className="btn btn-secondary">Add Walk</button>
-        {this.state.showWalkForm && <WalkForm addAWalk={this.addAWalk}/>}
+        {this.state.showWalkForm && <WalkForm addAWalk={this.addAWalk} dogs={dogs} employees={employees} />}
 
     <Walks walks={this.state.walks} deleteAWalk={this.deleteAWalk} />
         <h1>Dawgs</h1>
