@@ -9,7 +9,6 @@ import './WalkForm.scss';
 
 class WalkForm extends React.Component {
   static propTypes = {
-    addWalks: PropTypes.func,
     employees: PropTypes.arrayOf(employeeShape.employeeShape),
     dogs: PropTypes.arrayOf(dogShape.dogShape),
     addAWalk: PropTypes.func,
