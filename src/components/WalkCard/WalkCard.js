@@ -10,6 +10,8 @@ class WalkCard extends React.Component {
   static propTypes = {
     walk: walkShape.walkShape,
     deleteAWalk: PropTypes.func,
+    setEditMode: PropTypes.func,
+    setWalkToEdit: PropTypes.func,
   }
 
   state = {
@@ -23,6 +25,19 @@ class WalkCard extends React.Component {
     const { walk, deleteAWalk } = this.props;
     deleteAWalk(walk.id);
   }
+
+
+  setWalkToEditEvent = (e) => {
+    const { setEditMode, setWalkToEdit, walk } = this.props;
+    e.preventDefault();
+    setEditMode(true);
+    setWalkToEdit(walk);
+  }
+  // setEditMode = (e) => {
+  //   e.preventDefault();
+  //   this.props.setEditMode(true);
+  //   // this.props.setWalkToEdit(this.props.walk);
+  // }
 
   getSingleEmployee = () => {
     const { walk } = this.props;
@@ -57,7 +72,7 @@ class WalkCard extends React.Component {
   <p class="card-text">Walker: {firstName } {lastName}</p>
     <p class="card-text">Date: {walk.date}</p>
     <button onClick={this.deleteWalkEvent} className="btn btn-danger">Delete Walk</button>
-    <button className="btn btn-danger">Edit Walk</button>
+    <button onClick={this.setWalkToEditEvent} className="btn btn-danger">Edit Walk</button>
 
 </div>
 </div>

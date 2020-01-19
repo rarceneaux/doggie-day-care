@@ -12,6 +12,9 @@ class WalkForm extends React.Component {
     employees: PropTypes.arrayOf(employeeShape.employeeShape),
     dogs: PropTypes.arrayOf(dogShape.dogShape),
     addAWalk: PropTypes.func,
+    walkToEdit: walkShape.walkShape,
+    updateAWalk: PropTypes.func,
+    editMode: PropTypes.bool,
   }
 
   state = {
@@ -20,9 +23,16 @@ class WalkForm extends React.Component {
     date: '',
   }
 
+  componentDidMount() {
+    const { walkToEdit, editMode } = this.props;
+    if (editMode) {
+      this.setState({ employeeName: walkToEdit.employeeName, dogName: walkToEdit.dogName, date: walkToEdit.date });
+    }
+  }
+
   saveWalkEvent = (e) => {
-    e.preventDefault();
     const { addAWalk } = this.props;
+    e.preventDefault();
     const newWalk = {
       dogId: this.state.dogName,
       employeeId: this.state.employeeName,
@@ -30,6 +40,17 @@ class WalkForm extends React.Component {
     };
     addAWalk(newWalk);
     this.setState({ employeeName: '', dogName: '', date: '' });
+  }
+
+  updateWalkEvent = (e) => {
+    e.preventDefault();
+    const { updateAWalk, walkToEdit } = this.props;
+    const updatedWalk = {
+      dogId: this.state.dogName,
+      employeeId: this.state.employeeName,
+      date: this.state.date,
+    };
+    updateAWalk(walkToEdit.id, updatedWalk);
   }
 
   handleDogChange = (e) => {
@@ -46,7 +67,7 @@ class WalkForm extends React.Component {
 
   render() {
     const { dogName, employeeName, date } = this.state;
-    const { dogs, employees } = this.props;
+    const { dogs, employees, editMode } = this.props;
 
     return (<form className="col-6 offset-3 WalkForm">
       <div className="input-group mb-3">
@@ -78,7 +99,8 @@ class WalkForm extends React.Component {
     <input type="date" id="date" value={date} onChange={this.handleDateChange}/>
     </div>
     {
-    <button onClick={this.saveWalkEvent} className="btn btn-secondary">Save Walk</button>
+      (editMode) ? (<button className="btn btn-warning" onClick={this.updateWalkEvent}>Update</button>)
+        : (<button onClick={this.saveWalkEvent} className="btn btn-secondary">Save Walk</button>)
     }
     </form>
     );
