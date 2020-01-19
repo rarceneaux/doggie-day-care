@@ -15,6 +15,8 @@ class Home extends React.Component {
     employees: [],
     walks: [],
     showWalkForm: false,
+    editMode: false,
+    walkToEdit: {},
   }
 
   componentDidMount() {
@@ -51,6 +53,19 @@ class Home extends React.Component {
     this.setState({ showWalkForm: true });
   }
 
+  setEditMode = (editMode) => {
+    this.setState({ editMode, showWalkForm: true });
+  }
+
+  updateAWalk = (walkId, newWalkInfo) => {
+    walksData.updateAWalk(walkId, newWalkInfo)
+      .then(() => {
+        this.props.getAllWalks();
+        this.setState({ editMode: false, showWalkForm: false });
+      })
+      .catch((errorFromUpdatedEvent) => console.error({ errorFromUpdatedEvent }));
+  }
+
   deleteAWalk = (walkId) => {
     walksData.deleteAWalk(walkId)
       .then(() => {
@@ -68,6 +83,10 @@ class Home extends React.Component {
       .catch((errorFromSaveNewWalk) => console.error({ errorFromSaveNewWalk }));
   }
 
+  setWalkToEdit = (walk) => {
+    this.setState({ WalkToEdit: walk });
+  }
+
   render() {
     const { dogs, employees } = this.state;
     return (
@@ -75,9 +94,9 @@ class Home extends React.Component {
         {/* <h1>Who Let da Dawgs Out?</h1> */}
         <h1>Dawg Walks</h1>
         <button onClick={this.setShowWalkForm} className="btn btn-secondary">Add Walk</button>
-        {this.state.showWalkForm && <WalkForm addAWalk={this.addAWalk} dogs={dogs} employees={employees} />}
+        {this.state.showWalkForm && <WalkForm addAWalk={this.addAWalk} dogs={dogs} employees={employees} editMode={this.state.editMode} setWalkToEdit={this.state.setWalkToEdit} walkToEdit={this.state.walkToEdit} updateAWalk={this.updateAWalk} />}
 
-    <Walks walks={this.state.walks} deleteAWalk={this.deleteAWalk} />
+    <Walks walks={this.state.walks} deleteAWalk={this.deleteAWalk} setEditMode={this.setEditMode} setWalkToEdit={this.setWalkToEdit} />
         <h1>Dawgs</h1>
     <DogPen dogs={this.state.dogs}/>
         {/* <h1> The Walkers </h1> */}

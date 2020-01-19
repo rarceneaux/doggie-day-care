@@ -13,12 +13,19 @@ class Walks extends React.Component {
     employees: PropTypes.arrayOf(employeeShape.employeeShape),
     dogs: PropTypes.arrayOf(dogShape.dogShape),
     deleteAWalk: PropTypes.func,
+    setEditMode: PropTypes.func,
+    setWalkToEdit: PropTypes.func,
   }
 
   render() {
-    const { walks, deleteAWalk } = this.props;
+    const {
+      walks,
+      deleteAWalk,
+      setEditMode,
+      setWalkToEdit,
+    } = this.props;
 
-    const walkCard = walks.map((walk) => <WalkCard key={walk.id} walk={walk} deleteAWalk={deleteAWalk} />);
+    const walkCard = walks.map((walk) => <WalkCard key={walk.id} walk={walk} deleteAWalk={deleteAWalk} setEditMode={setEditMode} setWalkToEdit={setWalkToEdit}/>);
 
     return (
 <div className="Walks">
